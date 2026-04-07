@@ -148,7 +148,7 @@ export default function Home() {
       {/* Nav */}
       <nav className="fixed top-0 w-full z-50 border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-lg">
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-          <span className="text-lg font-semibold text-zinc-100">Jon Tompkins</span>
+          <span className="text-lg font-semibold text-white">Jon Tompkins</span>
           <div className="flex gap-6 text-sm text-zinc-400">
             <a href="#projects" className="hover:text-zinc-100 transition-colors">Projects</a>
             <a href="#skills" className="hover:text-zinc-100 transition-colors">Skills</a>
@@ -160,9 +160,9 @@ export default function Home() {
       {/* Hero */}
       <section className="pt-32 pb-20 px-6">
         <div className="mx-auto max-w-6xl">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-white">
             Building AI-powered tools<br />
-            <span className="text-zinc-500">that people actually use.</span>
+            <span className="text-indigo-400">that people actually use.</span>
           </h1>
           <p className="mt-6 text-lg text-zinc-400 max-w-2xl">
             I design and build full-stack applications with AI agents at the core — from autonomous trading systems to ad marketplaces to visual memory protocols. Every project ships.
@@ -188,7 +188,7 @@ export default function Home() {
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <project.icon className="w-5 h-5 text-zinc-400" />
-                    <h3 className="text-lg font-semibold">{project.name}</h3>
+                    <h3 className="text-lg font-semibold text-white">{project.name}</h3>
                   </div>
                   <StatusBadge status={project.status} />
                 </div>
