@@ -4,22 +4,22 @@ const projects = [
   {
     name: 'MyJunto',
     tagline: 'Community coordination platform',
-    description: 'Platform for community-driven content, coordination, and collaboration. Built as a gathering space for builders and creators.',
+    description: 'Live platform for community-driven content, coordination, and collaboration. Named after Benjamin Franklin\'s mutual improvement society — built as a gathering space for builders and creators.',
     tech: ['Next.js', 'Vercel'],
     icon: Layers,
     status: 'active',
     url: 'https://myjunto.xyz',
-    highlights: ['Live and serving users', 'Community-first design', 'Full-stack production app'],
+    highlights: ['Live in production with active users', 'Community-first design with collaborative tools', 'Full-stack Next.js app deployed on Vercel'],
   },
   {
     name: 'Clawstreet',
     tagline: 'AI-powered trading platform',
-    description: 'Real-time market analysis, paper trading, and portfolio management. Wolf autonomous trader makes his own decisions, learns from results, and refines strategy over time.',
+    description: 'Full-stack trading platform with real-time market analysis, paper trading, and portfolio management for crypto assets. Integrates with Wolf autonomous agent for AI-driven trade execution.',
     tech: ['Next.js', 'Python', 'xAI', 'Multi-agent'],
     icon: BarChart3,
     status: 'active',
     url: null,
-    highlights: ['Autonomous paper trading with $1M starting balance', 'Wolf trader evaluates, executes, and journals trades', 'Scanner + evaluator pipeline for 25+ crypto assets'],
+    highlights: ['Paper trading with $1M starting balance', 'Scanner + evaluator pipeline for 25+ crypto assets', 'Real-time portfolio tracking and trade journaling'],
   },
   {
     name: 'Quillt',
@@ -34,12 +34,12 @@ const projects = [
   {
     name: 'Wolf',
     tagline: 'Autonomous trading agent',
-    description: 'An AI agent that independently analyzes markets, generates trade ideas, executes paper trades, and learns from results. Runs on a daily schedule with autonomous decision-making.',
+    description: 'AI agent that independently researches markets, generates trade theses, and executes paper trades on Clawstreet. Runs on a daily cron schedule with a self-improving learning loop.',
     tech: ['Python', 'Cron', 'Telegram API', 'xAI'],
     icon: Bot,
     status: 'active',
     url: null,
-    highlights: ['Makes own trading decisions with $1M paper balance', 'Daily digest + learning loop', 'Tracks every action with notes for review'],
+    highlights: ['Fully autonomous — no human in the loop', 'Daily digest with reasoning + trade journal via Telegram', 'Self-evaluates past trades to refine strategy'],
   },
   {
     name: 'Glyph',
@@ -161,7 +161,7 @@ export default function Home() {
       {/* Hero */}
       <section className="pt-32 pb-20 px-6">
         <div className="mx-auto max-w-6xl">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-white">
             10 years in hedge funds. 8 in DeFi.<br />
             <span className="text-zinc-500">Now building with AI.</span>
           </h1>
@@ -188,14 +188,14 @@ export default function Home() {
       {/* Projects */}
       <section id="projects" className="py-20 border-t border-zinc-800/50">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-2xl font-bold mb-12">Projects</h2>
+          <h2 className="text-2xl font-bold mb-12 text-white">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project) => (
               <div key={project.name} className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 hover:border-zinc-700 transition-colors">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <project.icon className="w-5 h-5 text-zinc-400" />
-                    <h3 className="text-lg font-semibold">{project.name}</h3>
+                    <h3 className="text-lg font-semibold text-white">{project.name}</h3>
                   </div>
                   <StatusBadge status={project.status} />
                 </div>
@@ -234,7 +234,7 @@ export default function Home() {
       {/* Skills */}
       <section id="skills" className="py-20 border-t border-zinc-800/50 bg-zinc-900/20">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-2xl font-bold mb-12">Skills & Capabilities</h2>
+          <h2 className="text-2xl font-bold mb-12 text-white">Skills & Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {skills.map((group) => (
               <div key={group.category}>
@@ -259,7 +259,7 @@ export default function Home() {
       {/* Stateboard */}
       <section id="status" className="py-20 border-t border-zinc-800/50">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-2xl font-bold mb-4">Stateboard</h2>
+          <h2 className="text-2xl font-bold mb-4 text-white">Stateboard</h2>
           <p className="text-zinc-500 mb-8 text-sm">Live status of all projects. Updated continuously.</p>
           
           <div className="rounded-xl border border-zinc-800 overflow-hidden">
