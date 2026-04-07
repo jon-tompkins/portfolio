@@ -187,7 +187,7 @@ export default function Home() {
       {/* Projects */}
       <section id="projects" className="py-20 border-t border-zinc-800/50">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-2xl font-bold mb-12">Projects</h2>
+          <h2 className="text-2xl font-bold mb-12 text-white">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project) => (
               <div key={project.name} className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 hover:border-zinc-700 transition-colors">
@@ -233,13 +233,13 @@ export default function Home() {
       {/* Skills */}
       <section id="skills" className="py-20 border-t border-zinc-800/50 bg-zinc-900/20">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-2xl font-bold mb-12">Skills & Capabilities</h2>
+          <h2 className="text-2xl font-bold mb-12 text-white">Skills & Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {skills.map((group) => (
               <div key={group.category}>
                 <div className="flex items-center gap-2 mb-4">
                   <group.icon className="w-4 h-4 text-zinc-500" />
-                  <h3 className="font-semibold text-zinc-200">{group.category}</h3>
+                  <h3 className="font-semibold text-white">{group.category}</h3>
                 </div>
                 <div className="space-y-3">
                   {group.items.map((item) => (
@@ -258,7 +258,7 @@ export default function Home() {
       {/* Stateboard */}
       <section id="status" className="py-20 border-t border-zinc-800/50">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-2xl font-bold mb-4">Stateboard</h2>
+          <h2 className="text-2xl font-bold mb-4 text-white">Stateboard</h2>
           <p className="text-zinc-500 mb-8 text-sm">Live status of all projects. Updated continuously.</p>
           
           <div className="rounded-xl border border-zinc-800 overflow-hidden">
