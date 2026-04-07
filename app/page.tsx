@@ -2,6 +2,16 @@ import { ArrowUpRight, Zap, Layers, Bot, BarChart3, Globe, Shield, Eye, Code2, P
 
 const projects = [
   {
+    name: 'MyJunto',
+    tagline: 'Community coordination platform',
+    description: 'Platform for community-driven content, coordination, and collaboration. Built as a gathering space for builders and creators.',
+    tech: ['Next.js', 'Vercel'],
+    icon: Layers,
+    status: 'active',
+    url: 'https://myjunto.xyz',
+    highlights: ['Live and serving users', 'Community-first design', 'Full-stack production app'],
+  },
+  {
     name: 'Clawstreet',
     tagline: 'AI-powered trading platform',
     description: 'Real-time market analysis, paper trading, and portfolio management. Wolf autonomous trader makes his own decisions, learns from results, and refines strategy over time.',
@@ -22,26 +32,6 @@ const projects = [
     highlights: ['Publisher sets price, keeps 90% on every sale', 'Advertiser chooses duration, pays 10% APR holding cost', 'Auto-renew, buyout protection, slot returns to publisher on expiry'],
   },
   {
-    name: 'MyJunto',
-    tagline: 'Community coordination platform',
-    description: 'Platform for community-driven content, coordination, and collaboration. Built as a gathering space for builders and creators.',
-    tech: ['Next.js', 'Vercel'],
-    icon: Layers,
-    status: 'active',
-    url: 'https://myjunto.xyz',
-    highlights: ['Community-first design', 'Live and serving users'],
-  },
-  {
-    name: 'Glyph',
-    tagline: 'Visual memory system for AI agents',
-    description: 'A compact visual language for encoding state, context, and meaning across AI agents. Compresses complex information ~6:1 versus text, enabling faster coordination and lower costs.',
-    tech: ['Emoji grammar', 'Multi-agent coordination', 'Token optimization'],
-    icon: Eye,
-    status: 'prototype',
-    url: null,
-    highlights: ['2.4x faster agent coordination vs text', '55% lower token costs in A/B tests', 'Temporal glyphs track direction, velocity, timeframe'],
-  },
-  {
     name: 'Wolf',
     tagline: 'Autonomous trading agent',
     description: 'An AI agent that independently analyzes markets, generates trade ideas, executes paper trades, and learns from results. Runs on a daily schedule with autonomous decision-making.',
@@ -52,14 +42,14 @@ const projects = [
     highlights: ['Makes own trading decisions with $1M paper balance', 'Daily digest + learning loop', 'Tracks every action with notes for review'],
   },
   {
-    name: 'Hawk',
-    tagline: 'Flight deal scanner',
-    description: 'Automated scanner monitoring flight prices from NYC to European destinations. Alerts when business class deals appear under $3K round-trip.',
-    tech: ['Python', 'Kiwi API', 'Cron'],
-    icon: Zap,
-    status: 'awaiting API key',
+    name: 'Glyph',
+    tagline: 'Visual memory system for AI agents',
+    description: 'A compact visual language for encoding state, context, and meaning across AI agents. Compresses complex information ~6:1 versus text, enabling faster coordination and lower costs.',
+    tech: ['Emoji grammar', 'Multi-agent coordination', 'Token optimization'],
+    icon: Eye,
+    status: 'prototype',
     url: null,
-    highlights: ['Targets 12 European cities', 'Business class under $3K RT', 'Daily automated scan'],
+    highlights: ['2.4x faster agent coordination vs text', '55% lower token costs in A/B tests', 'Temporal glyphs track direction, velocity, timeframe'],
   },
   {
     name: 'Commit-Reveal System',
@@ -80,6 +70,16 @@ const projects = [
     status: 'built',
     url: null,
     highlights: ['Commit-reveal for fair gameplay', 'Trustless on-chain execution'],
+  },
+  {
+    name: 'Hawk',
+    tagline: 'Flight deal scanner',
+    description: 'Automated scanner monitoring flight prices from NYC to European destinations. Alerts when business class deals appear under $3K round-trip.',
+    tech: ['Python', 'Kiwi API', 'Cron'],
+    icon: Zap,
+    status: 'awaiting API key',
+    url: null,
+    highlights: ['Targets 12 European cities', 'Business class under $3K RT', 'Daily automated scan'],
   },
 ];
 
@@ -116,13 +116,13 @@ const skills = [
 ];
 
 const stateboard = [
+  { name: 'MyJunto', stage: 'live', health: '🟢', feeling: '🌱', notes: 'Community platform serving users' },
+  { name: 'Clawstreet', stage: 'building', health: '🟡', feeling: '🛠️', notes: 'Trading platform in development' },
   { name: 'Quillt', stage: 'active', health: '🟢', feeling: '✨', notes: 'Publisher + advertiser flows live, pricing updated' },
   { name: 'Wolf', stage: 'active', health: '🟢', feeling: '💪', notes: 'Autonomous trading, first position open' },
-  { name: 'Clawstreet', stage: 'building', health: '🟡', feeling: '🛠️', notes: 'Trading platform in development' },
-  { name: 'MyJunto', stage: 'live', health: '🟢', feeling: '🌱', notes: 'Community platform serving users' },
-  { name: 'Hawk', stage: 'blocked', health: '🟡', feeling: '💤', notes: 'Awaiting API key' },
   { name: 'Glyph', stage: 'prototype', health: '🟢', feeling: '🤔', notes: 'A/B tested, 6:1 compression, exploring applications' },
   { name: 'Portfolio', stage: 'building', health: '🟢', feeling: '🚀', notes: 'This site' },
+  { name: 'Hawk', stage: 'blocked', health: '🟡', feeling: '💤', notes: 'Awaiting API key' },
 ];
 
 function StatusBadge({ status }: { status: string }) {
@@ -153,6 +153,7 @@ export default function Home() {
             <a href="#projects" className="hover:text-zinc-100 transition-colors">Projects</a>
             <a href="#skills" className="hover:text-zinc-100 transition-colors">Skills</a>
             <a href="#status" className="hover:text-zinc-100 transition-colors">Status</a>
+            <a href="/resume.pdf" target="_blank" className="hover:text-zinc-100 transition-colors">Resume</a>
           </div>
         </div>
       </nav>
@@ -161,11 +162,11 @@ export default function Home() {
       <section className="pt-32 pb-20 px-6">
         <div className="mx-auto max-w-6xl">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-white">
-            Building AI-powered tools<br />
-            <span className="text-indigo-400">that people actually use.</span>
+            10 years in hedge funds. 8 in DeFi.<br />
+            <span className="text-indigo-400">Now building with AI.</span>
           </h1>
           <p className="mt-6 text-lg text-zinc-400 max-w-2xl">
-            I design and build full-stack applications with AI agents at the core — from autonomous trading systems to ad marketplaces to visual memory protocols. Every project ships.
+            Product leader and builder at the intersection of finance, crypto, and AI. From institutional trading systems to DeFi protocols to autonomous agents — I ship things that work.
           </p>
           <div className="mt-8 flex gap-6">
             <a href="https://github.com/jon-tompkins" target="_blank" className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors">
