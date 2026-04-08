@@ -3,13 +3,14 @@ import { ArrowUpRight, Zap, Layers, Bot, BarChart3, Globe, Shield, Eye, Code2, P
 const projects = [
   {
     name: 'MyJunto',
-    tagline: 'Community coordination platform',
-    description: 'Live platform for community-driven content, coordination, and collaboration. Named after Benjamin Franklin\'s mutual improvement society — built as a gathering space for builders and creators.',
-    tech: ['Next.js', 'Vercel'],
+    tagline: 'AI-powered newsletter marketplace',
+    description: 'Create and subscribe to AI-powered newsletters built from curated Twitter sources. Pick your sources, define your lens, and get synthesized intelligence — not noise.',
+    tech: ['Next.js', 'Vercel', 'AI synthesis'],
     icon: Layers,
     status: 'active',
     url: 'https://myjunto.xyz',
-    highlights: ['Live in production with active users', 'Community-first design with collaborative tools', 'Full-stack Next.js app deployed on Vercel'],
+    image: '/previews/myjunto.png',
+    highlights: ['Live in production with active subscribers', 'AI synthesizes sources into actionable daily/weekly briefs', 'Creator marketplace with 50% revenue share'],
   },
   {
     name: 'Clawstreet',
@@ -19,6 +20,7 @@ const projects = [
     icon: BarChart3,
     status: 'active',
     url: null,
+    image: null,
     highlights: ['Paper trading with $1M starting balance', 'Scanner + evaluator pipeline for 25+ crypto assets', 'Real-time portfolio tracking and trade journaling'],
   },
   {
@@ -29,6 +31,7 @@ const projects = [
     icon: Globe,
     status: 'active',
     url: 'https://quillt.xyz',
+    image: '/previews/quillt.png',
     highlights: ['Publisher sets price, keeps 90% on every sale', 'Advertiser chooses duration, pays 10% APR holding cost', 'Auto-renew, buyout protection, slot returns to publisher on expiry'],
   },
   {
@@ -39,6 +42,7 @@ const projects = [
     icon: Bot,
     status: 'active',
     url: null,
+    image: null,
     highlights: ['Fully autonomous — no human in the loop', 'Daily digest with reasoning + trade journal via Telegram', 'Self-evaluates past trades to refine strategy'],
   },
   {
@@ -49,6 +53,7 @@ const projects = [
     icon: Eye,
     status: 'prototype',
     url: null,
+    image: null,
     highlights: ['2.4x faster agent coordination vs text', '55% lower token costs in A/B tests', 'Temporal glyphs track direction, velocity, timeframe'],
   },
   {
@@ -59,6 +64,7 @@ const projects = [
     icon: Shield,
     status: 'built',
     url: null,
+    image: null,
     highlights: ['Verifiable on-chain randomness', 'Fair game mechanics'],
   },
   {
@@ -69,6 +75,7 @@ const projects = [
     icon: Boxes,
     status: 'built',
     url: null,
+    image: null,
     highlights: ['Commit-reveal for fair gameplay', 'Trustless on-chain execution'],
   },
   {
@@ -79,6 +86,7 @@ const projects = [
     icon: Zap,
     status: 'awaiting API key',
     url: null,
+    image: null,
     highlights: ['Targets 12 European cities', 'Business class under $3K RT', 'Daily automated scan'],
   },
 ];
@@ -116,7 +124,7 @@ const skills = [
 ];
 
 const stateboard = [
-  { name: 'MyJunto', stage: 'live', health: '🟢', feeling: '🌱', notes: 'Community platform serving users' },
+  { name: 'MyJunto', stage: 'live', health: '🟢', feeling: '🌱', notes: 'AI newsletter marketplace serving subscribers' },
   { name: 'Clawstreet', stage: 'building', health: '🟡', feeling: '🛠️', notes: 'Trading platform in development' },
   { name: 'Quillt', stage: 'active', health: '🟢', feeling: '✨', notes: 'Publisher + advertiser flows live, pricing updated' },
   { name: 'Wolf', stage: 'active', health: '🟢', feeling: '💪', notes: 'Autonomous trading, first position open' },
@@ -191,7 +199,13 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-12 text-white">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project) => (
-              <div key={project.name} className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 hover:border-zinc-700 transition-colors">
+              <div key={project.name} className="rounded-xl border border-zinc-800 bg-zinc-900/30 hover:border-zinc-700 transition-colors overflow-hidden">
+                {project.image && (
+                  <div className="w-full h-40 overflow-hidden border-b border-zinc-800/50">
+                    <img src={project.image} alt={`${project.name} preview`} className="w-full h-full object-cover object-top" />
+                  </div>
+                )}
+                <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <project.icon className="w-5 h-5 text-zinc-400" />
@@ -224,6 +238,7 @@ export default function Home() {
                       Live <ArrowUpRight className="w-3 h-3" />
                     </a>
                   )}
+                </div>
                 </div>
               </div>
             ))}
