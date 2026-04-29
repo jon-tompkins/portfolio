@@ -1,4 +1,4 @@
-import { ArrowUpRight, Zap, Layers, Bot, BarChart3, Globe, Shield, Eye, Code2, Palette, Workflow, Boxes } from 'lucide-react';
+import { ArrowUpRight, Zap, Layers, Bot, BarChart3, Globe, Shield, Eye, Code2, Palette, Workflow, Boxes, Lock } from 'lucide-react';
 
 const projects = [
   {
@@ -7,9 +7,19 @@ const projects = [
     description: 'Platform for community-driven content, coordination, and collaboration. Built as a gathering space for builders and creators.',
     tech: ['Next.js', 'Vercel'],
     icon: Layers,
-    status: 'active',
+    status: 'open-beta',
     url: 'https://myjunto.xyz',
     highlights: ['Live and serving users', 'Community-first design', 'Full-stack production app'],
+  },
+  {
+    name: 'Aegis',
+    tagline: 'Trust-focused L2 with decentralized storage',
+    description: 'An L2 designed for trust and integrity. Flag records and attestations live on decentralized storage (IPFS / Arweave) or the L2 itself — no centralized 3rd-party databases. Phase 1a infrastructure in development.',
+    tech: ['Solidity', 'Terraform', 'AWS', 'Arweave'],
+    icon: Lock,
+    status: 'Building',
+    url: 'https://github.com/jon-tompkins/aegis-public',
+    highlights: ['Decentralized canonical storage (IPFS / Arweave)', 'Append-only attestations via supersedes', 'Phase 1a infra: 8-module Terraform skeleton'],
   },
   {
     name: 'Clawstreet',
@@ -17,7 +27,7 @@ const projects = [
     description: 'Real-time market analysis, paper trading, and portfolio management. Wolf autonomous trader makes his own decisions, learns from results, and refines strategy over time.',
     tech: ['Next.js', 'Python', 'xAI', 'Multi-agent'],
     icon: BarChart3,
-    status: 'active',
+    status: 'Building',
     url: null,
     highlights: ['Autonomous paper trading with $1M starting balance', 'Wolf trader evaluates, executes, and journals trades', 'Scanner + evaluator pipeline for 25+ crypto assets'],
   },
@@ -27,7 +37,7 @@ const projects = [
     description: 'Alternative to Google AdSense where publishers own their ad slots and set their own prices. Advertisers buy directly — no auctions, no 45% middleman cut.',
     tech: ['Next.js', 'NextAuth', 'Vercel', 'Harberger pricing'],
     icon: Globe,
-    status: 'active',
+    status: 'Building',
     url: 'https://quillt.xyz',
     highlights: ['Publisher sets price, keeps 90% on every sale', 'Advertiser chooses duration, pays 10% APR holding cost', 'Auto-renew, buyout protection, slot returns to publisher on expiry'],
   },
@@ -37,7 +47,7 @@ const projects = [
     description: 'An AI agent that independently analyzes markets, generates trade ideas, executes paper trades, and learns from results. Runs on a daily schedule with autonomous decision-making.',
     tech: ['Python', 'Cron', 'Telegram API', 'xAI'],
     icon: Bot,
-    status: 'active',
+    status: 'Building',
     url: null,
     highlights: ['Makes own trading decisions with $1M paper balance', 'Daily digest + learning loop', 'Tracks every action with notes for review'],
   },
@@ -47,7 +57,7 @@ const projects = [
     description: 'A compact visual language for encoding state, context, and meaning across AI agents. Compresses complex information ~6:1 versus text, enabling faster coordination and lower costs.',
     tech: ['Emoji grammar', 'Multi-agent coordination', 'Token optimization'],
     icon: Eye,
-    status: 'prototype',
+    status: 'Building',
     url: null,
     highlights: ['2.4x faster agent coordination vs text', '55% lower token costs in A/B tests', 'Temporal glyphs track direction, velocity, timeframe'],
   },
@@ -57,7 +67,7 @@ const projects = [
     description: 'A commit-reveal scheme for fair, transparent on-chain randomization. Designed for games and applications requiring verifiable randomness.',
     tech: ['Solidity', 'Smart Contracts'],
     icon: Shield,
-    status: 'built',
+    status: 'Building',
     url: null,
     highlights: ['Verifiable on-chain randomness', 'Fair game mechanics'],
   },
@@ -67,7 +77,7 @@ const projects = [
     description: 'Rock Paper Scissors with commit-reveal fairness, built as a proof of concept for trustless on-chain games.',
     tech: ['Solidity', 'Web3'],
     icon: Boxes,
-    status: 'built',
+    status: 'Building',
     url: null,
     highlights: ['Commit-reveal for fair gameplay', 'Trustless on-chain execution'],
   },
@@ -77,7 +87,7 @@ const projects = [
     description: 'Automated scanner monitoring flight prices from NYC to European destinations. Alerts when business class deals appear under $3K round-trip.',
     tech: ['Python', 'Kiwi API', 'Cron'],
     icon: Zap,
-    status: 'awaiting API key',
+    status: 'Building',
     url: null,
     highlights: ['Targets 12 European cities', 'Business class under $3K RT', 'Daily automated scan'],
   },
@@ -116,17 +126,20 @@ const skills = [
 ];
 
 const stateboard = [
-  { name: 'MyJunto', stage: 'live', health: '🟢', feeling: '🌱', notes: 'Community platform serving users' },
-  { name: 'Clawstreet', stage: 'building', health: '🟡', feeling: '🛠️', notes: 'Trading platform in development' },
-  { name: 'Quillt', stage: 'active', health: '🟢', feeling: '✨', notes: 'Publisher + advertiser flows live, pricing updated' },
-  { name: 'Wolf', stage: 'active', health: '🟢', feeling: '💪', notes: 'Autonomous trading, first position open' },
-  { name: 'Glyph', stage: 'prototype', health: '🟢', feeling: '🤔', notes: 'A/B tested, 6:1 compression, exploring applications' },
-  { name: 'Portfolio', stage: 'building', health: '🟢', feeling: '🚀', notes: 'This site' },
-  { name: 'Hawk', stage: 'blocked', health: '🟡', feeling: '💤', notes: 'Awaiting API key' },
+  { name: 'MyJunto', stage: 'open-beta', health: '🟢', feeling: '🌱', notes: 'Community platform serving users' },
+  { name: 'Aegis', stage: 'Building', health: '🟢', feeling: '🛠️', notes: 'L2 design + Phase 1a infra in progress' },
+  { name: 'Clawstreet', stage: 'Building', health: '🟡', feeling: '🛠️', notes: 'Trading platform in development' },
+  { name: 'Quillt', stage: 'Building', health: '🟢', feeling: '✨', notes: 'Publisher + advertiser flows live, pricing updated' },
+  { name: 'Wolf', stage: 'Building', health: '🟢', feeling: '💪', notes: 'Autonomous trading, first position open' },
+  { name: 'Glyph', stage: 'Building', health: '🟢', feeling: '🤔', notes: 'A/B tested, 6:1 compression, exploring applications' },
+  { name: 'Portfolio', stage: 'Building', health: '🟢', feeling: '🚀', notes: 'This site' },
+  { name: 'Hawk', stage: 'Building', health: '🟡', feeling: '💤', notes: 'Awaiting API key' },
 ];
 
 function StatusBadge({ status }: { status: string }) {
   const colors: Record<string, string> = {
+    'open-beta': 'bg-emerald-500/10 text-emerald-400 ring-emerald-500/20',
+    Building: 'bg-amber-500/10 text-amber-400 ring-amber-500/20',
     active: 'bg-emerald-500/10 text-emerald-400 ring-emerald-500/20',
     live: 'bg-emerald-500/10 text-emerald-400 ring-emerald-500/20',
     building: 'bg-amber-500/10 text-amber-400 ring-amber-500/20',
