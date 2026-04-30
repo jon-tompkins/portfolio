@@ -20,8 +20,8 @@ const projects = [
     tech: ['Python', 'Multi-agent', 'Claude', 'Equity research'],
     icon: TrendingUp,
     status: 'in progress',
-    url: 'https://ailmanack.xyz',
-    preview: null,
+    url: 'https://ailmanack.com',
+    preview: '/preview-ailmanack.png',
     highlights: ['Jeb, Ant, and Pete agents handle distinct research roles', 'Haiku synthesis layer consolidates findings', 'Buffett-style value investing framework'],
   },
   {
