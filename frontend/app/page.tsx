@@ -1,4 +1,4 @@
-import { ArrowUpRight, Zap, Layers, Bot, BarChart3, Globe, Shield, Eye, Code2, Palette, Workflow, Boxes } from 'lucide-react';
+import { ArrowUpRight, Zap, Layers, Bot, BarChart3, Globe, Shield, Eye, Code2, Palette, Workflow, Boxes, Lock } from 'lucide-react';
 
 const projects = [
   {
@@ -11,6 +11,17 @@ const projects = [
     url: 'https://myjunto.xyz',
     image: '/previews/myjunto.png',
     highlights: ['Live in production with active subscribers', 'AI synthesizes sources into actionable daily/weekly briefs', 'Creator marketplace with 50% revenue share'],
+  },
+  {
+    name: 'Aegis',
+    tagline: 'Trust-focused L2 with decentralized storage',
+    description: 'An L2 designed for trust and integrity. Flag records and attestations live on decentralized storage (IPFS / Arweave) or the L2 itself — no centralized 3rd-party databases. Phase 1a infrastructure in development.',
+    tech: ['Solidity', 'Terraform', 'AWS', 'Arweave'],
+    icon: Lock,
+    status: 'building',
+    url: 'https://github.com/jon-tompkins/aegis-public',
+    image: null,
+    highlights: ['Decentralized canonical storage (IPFS / Arweave)', 'Append-only attestations via supersedes', 'Phase 1a infra: 8-module Terraform skeleton'],
   },
   {
     name: 'Clawstreet',
@@ -125,6 +136,7 @@ const skills = [
 
 const stateboard = [
   { name: 'MyJunto', stage: 'live', health: '🟢', feeling: '🌱', notes: 'AI newsletter marketplace serving subscribers' },
+  { name: 'Aegis', stage: 'building', health: '🟢', feeling: '🛠️', notes: 'L2 design + Phase 1a infra in progress' },
   { name: 'Clawstreet', stage: 'building', health: '🟡', feeling: '🛠️', notes: 'Trading platform in development' },
   { name: 'Quillt', stage: 'active', health: '🟢', feeling: '✨', notes: 'Publisher + advertiser flows live, pricing updated' },
   { name: 'Wolf', stage: 'active', health: '🟢', feeling: '💪', notes: 'Autonomous trading, first position open' },
