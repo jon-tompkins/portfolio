@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ArrowUpRight, Zap, Bot, BarChart3, Globe, Shield, Eye, Code2, Workflow, Boxes, TrendingUp } from 'lucide-react';
+import { ArrowUpRight, Zap, Bot, BarChart3, Globe, Shield, Eye, Code2, Workflow, Boxes, TrendingUp, Map } from 'lucide-react';
 
 const projects = [
   {
@@ -23,6 +23,20 @@ const projects = [
     url: 'https://ailmanack.com',
     preview: '/preview-ailmanack.png',
     highlights: ['Jeb, Ant, and Pete agents handle distinct research roles', 'Haiku synthesis layer consolidates findings', 'Buffett-style value investing framework'],
+  },
+  {
+    name: 'Ground Up',
+    tagline: 'Global youth instability intelligence',
+    description: 'Live map tracking youth-bulge hotspots across 40+ countries. Ranks regions by instability fuse score and intervention probability — identifying where investment has the highest impact. Autonomous signals agent refreshes 4x/day via live web search.',
+    tech: ['Next.js', 'xAI', 'Cron', 'World Bank API'],
+    icon: Map,
+    status: 'active',
+    url: 'https://thegroundup.xyz',
+    highlights: [
+      '40-country watch list ranked by dual-axis fuse × freedom scores',
+      'Autonomous signals agent refreshes 4x/day with live web search',
+      'Data pipeline: World Bank, ACLED, Freedom House, ILO, UN WPP',
+    ],
   },
   {
     name: 'Aegis',
@@ -97,6 +111,7 @@ const experimental = [
 const stateboard = [
   { name: 'MyJunto', stage: 'public beta', health: '🟢', feeling: '✨', notes: 'Live, serving users, AI-curated dispatches' },
   { name: 'Ailmanack', stage: 'building', health: '🟡', feeling: '🏗️', notes: 'Multi-agent equity research in development' },
+  { name: 'Ground Up', stage: 'active', health: '🟢', feeling: '🌍', notes: 'Signals agent live, 40-country watch, 4x/day refresh' },
   { name: 'Aegis', stage: 'in progress', health: '🟡', feeling: '🛠️', notes: 'Pre-alpha, specs published' },
   { name: 'Quillt', stage: 'paused', health: '🟡', feeling: '⏸️', notes: 'Publisher + advertiser flows built' },
   { name: 'Clawstreet', stage: 'paused', health: '🟡', feeling: '⏸️', notes: '9 agents, 129 trades, 50 RPS games' },
