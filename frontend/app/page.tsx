@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ArrowUpRight, Zap, Bot, BarChart3, Globe, Shield, Eye, Code2, Workflow, Boxes, TrendingUp, Map } from 'lucide-react';
+import { ArrowUpRight, Zap, Bot, BarChart3, Globe, Shield, Eye, Code2, Workflow, Boxes, TrendingUp, Map, Coins } from 'lucide-react';
 
 const projects = [
   {
@@ -37,6 +37,16 @@ const projects = [
       'Autonomous signals agent refreshes 4x/day with live web search',
       'Data pipeline: World Bank, ACLED, Freedom House, ILO, UN WPP',
     ],
+  },
+  {
+    name: 'BUKS Protocol',
+    tagline: 'Multi-collateral stablecoin, rate-capped by design',
+    description: 'A D3M-style multi-collateral stablecoin on Hyperliquid EVM. Active rate-capped supply management keeps issuance disciplined instead of reactive, with a governance layer to tune parameters over time.',
+    tech: ['Solidity', 'Foundry', 'Hyperliquid EVM', 'Morpho'],
+    icon: Coins,
+    status: 'in progress',
+    url: 'https://buks-protocol.vercel.app',
+    highlights: ['Foundry scaffold with passing test suite', 'MintRouter + market modules for collateral onboarding', 'BUKSGOV governance layer for protocol parameters'],
   },
   {
     name: 'Aegis',
@@ -112,6 +122,7 @@ const stateboard = [
   { name: 'MyJunto', stage: 'public beta', health: '🟢', feeling: '✨', notes: 'Live, serving users, AI-curated dispatches' },
   { name: 'Ailmanack', stage: 'building', health: '🟡', feeling: '🏗️', notes: 'Multi-agent equity research in development' },
   { name: 'Ground Up', stage: 'active', health: '🟢', feeling: '🌍', notes: 'Signals agent live, 40-country watch, 4x/day refresh' },
+  { name: 'BUKS Protocol', stage: 'in progress', health: '🟡', feeling: '🛠️', notes: 'Foundry scaffold + landing page live, tests passing' },
   { name: 'Aegis', stage: 'in progress', health: '🟡', feeling: '🛠️', notes: 'Pre-alpha, specs published' },
   { name: 'Quillt', stage: 'paused', health: '🟡', feeling: '⏸️', notes: 'Publisher + advertiser flows built' },
   { name: 'Clawstreet', stage: 'paused', health: '🟡', feeling: '⏸️', notes: '9 agents, 129 trades, 50 RPS games' },
