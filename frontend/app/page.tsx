@@ -21,6 +21,7 @@ const projects = [
     icon: Coins,
     status: 'in progress',
     url: '',
+    preview: '/preview-buyback.png',
     highlights: ['RATSPEAK/WETH & RATSPEAK/USDC ladders live', 'Even-value / even-tokens rung weighting', 'Hook-based fill-and-stop with claimable proceeds'],
   },
   {
