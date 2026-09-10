@@ -20,7 +20,7 @@ const projects = [
     tech: ['Solidity', 'V4 Hooks', 'Uniswap', 'Base'],
     icon: Coins,
     status: 'in progress',
-    url: '',
+    url: 'https://buyback-lp.vercel.app',
     preview: '/preview-buyback.png',
     highlights: ['RATSPEAK/WETH & RATSPEAK/USDC ladders live', 'Even-value / even-tokens rung weighting', 'Hook-based fill-and-stop with claimable proceeds'],
   },
