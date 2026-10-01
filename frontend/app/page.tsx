@@ -21,7 +21,7 @@ const projects = [
     icon: Coins,
     status: 'in progress',
     url: 'https://www.trancher.xyz',
-    preview: '/preview-trancher.png',
+    preview: '/preview-buyback.png',
     highlights: ['Any Base token — live chart, order book, ladders', 'On-chain fills + auto-reroll, no keeper', 'LP-as-collateral lending (per-user Morpho markets)'],
   },
   {
