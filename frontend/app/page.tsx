@@ -14,15 +14,15 @@ const projects = [
     highlights: ['Community-first design', 'AI-curated content from trusted sources', 'Live and serving users'],
   },
   {
-    name: 'Buyback',
-    tagline: 'Single-sided LP ladders for automated buybacks & distributions',
-    description: 'Place resting liquidity ladders that convert between quote and token as price sweeps each rung. Even-value or even-tokens weighting, claim-based V4 hook execution, and per-rung exit policies (keep / extract / reroll).',
-    tech: ['Solidity', 'V4 Hooks', 'Uniswap', 'Base'],
+    name: 'Trancher',
+    tagline: 'Laddered limit-order LP on Uniswap v4 — and borrow against it',
+    description: 'A trading terminal for any Base token: place single-sided limit orders and ladders that fill on-chain as price sweeps each rung, with per-rung keep / extract / auto-reroll policies. Non-custodial via a custom Uniswap v4 hook — and your resting LP can be pledged as collateral to borrow against.',
+    tech: ['Solidity', 'Uniswap v4 Hooks', 'Morpho', 'Base', 'Next.js'],
     icon: Coins,
     status: 'in progress',
-    url: 'https://buyback-lp.vercel.app',
-    preview: '/preview-buyback.png',
-    highlights: ['RATSPEAK/WETH & RATSPEAK/USDC ladders live', 'Even-value / even-tokens rung weighting', 'Hook-based fill-and-stop with claimable proceeds'],
+    url: 'https://www.trancher.xyz',
+    preview: '/preview-trancher.png',
+    highlights: ['Any Base token — live chart, order book, ladders', 'On-chain fills + auto-reroll, no keeper', 'LP-as-collateral lending (per-user Morpho markets)'],
   },
   {
     name: 'Rattools',
@@ -151,7 +151,7 @@ const experimental = [
 
 const stateboard = [
   { name: 'MyJunto', stage: 'public beta', health: '🟢', feeling: '✨', notes: 'Live, serving users, AI-curated dispatches' },
-  { name: 'Buyback', stage: 'in progress', health: '🟡', feeling: '🔄', notes: 'V4 hook + ladder minting, keep policy live' },
+  { name: 'Trancher', stage: 'in progress', health: '🟡', feeling: '🔄', notes: 'v4-hook limit-order LP + LP-as-collateral lending, live on Base' },
   { name: 'Rattools', stage: 'active', health: '🟢', feeling: '🛠️', notes: 'RATSPEAK tooling & dashboards' },
   { name: 'Screeners', stage: 'active', health: '🟢', feeling: '🔍', notes: 'Autonomous trading & opportunity screeners' },
   { name: 'Ailmanack', stage: 'building', health: '🟡', feeling: '🏗️', notes: 'Multi-agent equity research in development' },
