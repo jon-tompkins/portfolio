@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ArrowUpRight, Zap, Bot, BarChart3, Globe, Shield, Eye, Code2, Workflow, Boxes, TrendingUp, Map, Coins } from 'lucide-react';
+import { ArrowUpRight, Zap, Bot, BarChart3, Globe, Shield, Eye, Code2, Workflow, Boxes, TrendingUp, Map, Coins, Newspaper } from 'lucide-react';
 
 const projects = [
   {
@@ -23,6 +23,17 @@ const projects = [
     url: 'https://www.trancher.xyz',
     preview: '/preview-trancher.png',
     highlights: ['Any Base token — live chart, order book, ladders', 'On-chain fills + auto-reroll, no keeper', 'LP-as-collateral lending (per-user Morpho markets)'],
+  },
+  {
+    name: 'Back of the Box',
+    tagline: 'A smarter breakfast, printed on paper',
+    description: 'A screen-free daily puzzle page for kids — real kid-safe news, weather, a word to grow on, mazes, crosswords, sudoku, poems — age-tuned per module, then emailed each morning to print at home or on a tiny thermal strip.',
+    tech: ['Next.js', 'Vercel', 'Supabase', 'Claude', 'Headless Chromium'],
+    icon: Newspaper,
+    status: 'public beta',
+    url: 'https://www.backofthebox.xyz',
+    preview: '/preview-backofthebox.png',
+    highlights: ['25+ modules, each with its own 1–20 difficulty dial', 'Real headlines, sourced + fact-checked, ~$0.07/day', 'Answer keys stay off the paper — QR to the app'],
   },
   {
     name: 'Rattools',
@@ -152,6 +163,7 @@ const experimental = [
 const stateboard = [
   { name: 'MyJunto', stage: 'public beta', health: '🟢', feeling: '✨', notes: 'Live, serving users, AI-curated dispatches' },
   { name: 'Trancher', stage: 'in progress', health: '🟡', feeling: '🔄', notes: 'v4-hook limit-order LP + LP-as-collateral lending, live on Base' },
+  { name: 'Back of the Box', stage: 'public beta', health: '🟢', feeling: '🥣', notes: 'Daily kid puzzle page, emailed + printable' },
   { name: 'Rattools', stage: 'active', health: '🟢', feeling: '🛠️', notes: 'RATSPEAK tooling & dashboards' },
   { name: 'Screeners', stage: 'active', health: '🟢', feeling: '🔍', notes: 'Autonomous trading & opportunity screeners' },
   { name: 'Ailmanack', stage: 'building', health: '🟡', feeling: '🏗️', notes: 'Multi-agent equity research in development' },
