@@ -22,9 +22,9 @@ const GROUP = [['1', 'Just me'], ['2', 'Two of us'], ['4', 'A group']] as const;
 
 type State = {
   step: number; connected: string[]; interests: string[]; when: string[]; budget: string; group: string;
-  city: string; email: string;
+  city: string; email: string; spotifyArtists: string[];
 };
-const INIT: State = { step: 0, connected: [], interests: [], when: ['tonight', 'weekend'], budget: '$$', group: '2', city: '', email: '' };
+const INIT: State = { step: 0, connected: [], interests: [], when: ['tonight', 'weekend'], budget: '$$', group: '2', city: '', email: '', spotifyArtists: [] };
 
 const PICKS: Record<string, { title: string; sub: string; deal: string; when: string }[]> = {
   music: [
@@ -51,9 +51,30 @@ export default function Dibs() {
   const [busy, setBusy] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
   const [claimed, setClaimed] = useState<string[]>([]);
+  const [spotifyLive, setSpotifyLive] = useState(false);
+  const [note, setNote] = useState('');
 
   useEffect(() => {
     try { const raw = localStorage.getItem('dibs-v1'); if (raw) setS({ ...INIT, ...JSON.parse(raw) }); } catch {}
+    // Returning from Spotify's full-page redirect: fold the result into saved progress.
+    const m = document.cookie.match(/(?:^|; )dibs_spotify=([^;]+)/);
+    const result = new URLSearchParams(location.search).get('spotify');
+    if (m) {
+      try {
+        const d = JSON.parse(decodeURIComponent(decodeURIComponent(m[1])));
+        setS((o) => ({
+          ...o, step: Math.max(o.step, 1),
+          connected: Array.from(new Set([...o.connected, 'spotify'])),
+          interests: Array.from(new Set([...o.interests, ...(d.tags || [])])),
+          spotifyArtists: d.artists || [],
+        }));
+      } catch {}
+      document.cookie = 'dibs_spotify=; Max-Age=0; path=/dibs';
+    } else if (result && result !== 'ok') {
+      setNote(result === 'unavailable' ? 'Spotify isn’t switched on yet.' : 'Spotify didn’t connect. You can try again or skip.');
+    }
+    if (result) history.replaceState(null, '', '/dibs');
+    fetch('/api/dibs/config').then((r) => r.json()).then((c) => setSpotifyLive(!!c.spotify)).catch(() => {});
     setReady(true);
   }, []);
   useEffect(() => { if (ready) localStorage.setItem('dibs-v1', JSON.stringify(s)); }, [s, ready]);
@@ -65,6 +86,7 @@ export default function Dibs() {
 
   const connect = (id: string) => {
     if (s.connected.includes(id)) return toggle('connected', id);
+    if (id === 'spotify' && spotifyLive) { setBusy(id); window.location.href = '/api/dibs/spotify/login'; return; }
     setBusy(id);
     setTimeout(() => {
       setS((o) => {
@@ -84,6 +106,12 @@ export default function Dibs() {
 
   if (!ready) return null;
   const next = () => set({ step: s.step + 1 });
+  const submit = () => {
+    fetch('https://www.myjunto.xyz/api/public/dibs-signup', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(s),
+    }).catch(() => {});
+    next();
+  };
   const back = () => set({ step: Math.max(0, s.step - 1) });
 
   return (
@@ -112,7 +140,8 @@ export default function Dibs() {
               );
             })}
           </div>
-          <p className="fine">Preview: connections are simulated until launch. Nothing leaves your browser.</p>
+          {note && <p className="fine" style={{ color: 'var(--acc)' }}>{note}</p>}
+          <p className="fine">{spotifyLive ? 'Spotify is real (read-only top artists). The others are simulated until launch.' : 'Preview: connections are simulated until launch. Nothing leaves your browser.'}</p>
           <div className="cta-row">
             <button className="btn" onClick={next}>{s.connected.length ? `Continue with ${s.connected.length}` : 'Continue'}</button>
             {!s.connected.length && <button className="link" onClick={next}>Skip, I’ll just tell you</button>}
@@ -139,7 +168,7 @@ export default function Dibs() {
           <div className="q">Where should we send picks?</div>
           <input className="in" type="email" inputMode="email" autoComplete="email" enterKeyHint="go" placeholder="you@email.com" value={s.email} onChange={(e) => set({ email: e.target.value })} />
           <p className="fine">1–3 picks a day, only when something fits. Unsubscribe anytime.</p>
-          <div className="cta-row"><button className="btn" disabled={!s.city || !/.+@.+\..+/.test(s.email)} onClick={next}>Show my picks</button><button className="link" onClick={back}>Back</button></div>
+          <div className="cta-row"><button className="btn" disabled={!s.city || !/.+@.+\..+/.test(s.email)} onClick={submit}>Show my picks</button><button className="link" onClick={back}>Back</button></div>
         </section>)}
 
         {s.step === 3 && (<section>
