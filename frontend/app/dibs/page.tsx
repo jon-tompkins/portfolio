@@ -212,11 +212,9 @@ export default function Dibs() {
         <div className="stepname">{steps[s.step]}</div>
 
         {!reviewing && s.step === 0 && (<section>
-          {googleLive && (me ? (
+          {me && (
             <div className="signed">Signed in as <b>{me}</b> <button className="link" onClick={() => fetch('/api/dibs/logout', { method: 'POST' }).then(() => { setMe(null); set({ email: '' }); })}>Sign out</button></div>
-          ) : (
-            <a className="gbtn" href="/api/dibs/auth/google/login"><span className="g">G</span>Continue with Google</a>
-          ))}
+          )}
           <h1>Connect what you love.</h1>
           <p className="lead">The more you link, the less you have to tell us. Tap any that apply. Read-only, and nothing is posted.</p>
           <div className="svcs">
@@ -256,11 +254,20 @@ export default function Dibs() {
           <div className="chips">{GROUP.map(([k, l]) => <button key={k} className={'chip' + (s.group === k ? ' on' : '')} onClick={() => set({ group: k })}>{l}</button>)}</div>
           <div className="q">Where are you?</div>
           <input className="in" placeholder="City or zip" autoComplete="postal-code" enterKeyHint="next" value={s.city} onChange={(e) => set({ city: e.target.value })} />
-          {!me && <div className="q">Where should we send picks?</div>}
-          {me ? <p className="fine">Picks go to <b>{me}</b>.</p> : null}
-          <input className="in" style={me ? { display: 'none' } : undefined} type="email" inputMode="email" autoComplete="email" enterKeyHint="go" placeholder="you@email.com" value={s.email} onChange={(e) => set({ email: e.target.value })} />
+          {!googleLive && !me && (<>
+            <div className="q">Where should we send picks?</div>
+            <input className="in" type="email" inputMode="email" autoComplete="email" enterKeyHint="go" placeholder="you@email.com" value={s.email} onChange={(e) => set({ email: e.target.value })} />
+          </>)}
+          {me && <p className="fine">Picks go to <b>{me}</b>.</p>}
           <p className="fine">1–3 picks a day, only when something fits. Unsubscribe anytime.</p>
-          <div className="cta-row"><button className="btn" disabled={!s.city || !/.+@.+\..+/.test(s.email)} onClick={submit}>Show my picks</button><button className="link" onClick={back}>Back</button></div>
+          <div className="cta-row">
+            {googleLive && !me ? (
+              <a className={'gbtn' + (!s.city ? ' off' : '')} href={s.city ? '/api/dibs/auth/google/login' : undefined} aria-disabled={!s.city}><span className="g">G</span>Sign in with Google to see your picks</a>
+            ) : (
+              <button className="btn" disabled={!s.city || !/.+@.+\..+/.test(s.email)} onClick={submit}>Show my picks</button>
+            )}
+            <button className="link" onClick={back}>Back</button>
+          </div>
         </section>)}
 
         {reviewing && (<section>
@@ -337,7 +344,7 @@ h1{font-size:clamp(28px,8.5vw,40px);line-height:1.08;letter-spacing:-1px;margin:
 .claim{background:transparent;border:1.5px solid var(--acc);color:var(--acc);border-radius:10px;min-height:42px;padding:8px 16px;font-weight:600}.claim.done{background:var(--acc);color:#111}
 
 .gbtn{display:flex;align-items:center;justify-content:center;gap:12px;min-height:54px;background:#fff;color:#1f1f1f;border-radius:14px;font-weight:600;text-decoration:none;margin-bottom:26px}
-.gbtn:active{transform:scale(.98)}.g{font-weight:800;color:#4285f4;font-size:20px}
+.gbtn{width:100%;margin-bottom:0}.gbtn.off{opacity:.35;pointer-events:none}.gbtn:active{transform:scale(.98)}.g{font-weight:800;color:#4285f4;font-size:20px}
 .signed{background:var(--card);border-radius:12px;padding:12px 16px;margin-bottom:22px;font-size:15px;color:var(--mute)}.signed b{color:#fff;word-break:break-all}.signed .link{margin-left:8px;padding:0;min-height:0}
 .card2{background:var(--card);border-radius:14px;padding:16px 18px;margin:16px 0}.card2 b{display:block}.card2 small{display:block;color:var(--mute);font-size:14px;margin-top:4px}
 .card2.tap{border:1.5px dashed #3a3960;cursor:pointer}.card2.tap:active{transform:scale(.98)}
